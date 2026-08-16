@@ -1,0 +1,18 @@
+{
+  "extends": "@agentdesk/config/tsconfig.react.json",
+  "compilerOptions": {
+    // `node` is here for a non-obvious but important reason.
+    //
+    // The RPC client infers its types by typechecking the API's *source*
+    // (see apps/api package exports). If any file in that type graph fails to
+    // compile under this tsconfig — and the API legitimately uses Node globals
+    // like `process` — TypeScript degrades the inferred AppType to `any`
+    // rather than erroring. The client then silently accepts anything.
+    //
+    // This is the failure mode reported against Hono in Turborepo workspaces.
+    // Without node types here, `pnpm typecheck` passes and the RPC bonus is
+    // quietly worthless. src/lib/rpc-guard.ts asserts it stays working.
+    "types": ["vite/client", "node"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vite.config.ts"]
+}

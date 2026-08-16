@@ -1,0 +1,28 @@
+{
+  "name": "@agentdesk/agents",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@agentdesk/core": "workspace:*",
+    "@agentdesk/db": "workspace:*",
+    "@ai-sdk/anthropic": "^4.0.39",
+    "@ai-sdk/provider": "^4.0.7",
+    "ai": "^7.0.66",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@agentdesk/config": "workspace:*",
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}

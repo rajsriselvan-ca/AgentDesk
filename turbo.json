@@ -1,0 +1,53 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "ui": "stream",
+  "globalEnv": [
+    "NODE_ENV",
+    "DATABASE_URL",
+    "TEST_DATABASE_URL",
+    "AI_PROVIDER",
+    "ANTHROPIC_API_KEY",
+    "AGENT_MODEL",
+    "COMPACTION_MODEL",
+    "PORT",
+    "CORS_ORIGIN",
+    "LOG_LEVEL",
+    "RATE_LIMIT_WINDOW_MS",
+    "RATE_LIMIT_READ_MAX",
+    "RATE_LIMIT_CHAT_MAX",
+    "CONTEXT_TOKEN_BUDGET",
+    "CONTEXT_RECENT_MESSAGES",
+    "AGENT_MAX_STEPS",
+    "TOOL_TIMEOUT_MS",
+    "VITE_API_URL"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test:watch": {
+      "cache": false,
+      "persistent": true
+    },
+    "typecheck": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "lint": {}
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "agentdesk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.22.0",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test --concurrency=1",
+    "test:watch": "turbo run test:watch",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "db:generate": "pnpm --filter @agentdesk/db generate",
+    "db:migrate": "pnpm --filter @agentdesk/db migrate",
+    "db:seed": "pnpm --filter @agentdesk/db seed",
+    "db:reset": "pnpm --filter @agentdesk/db reset",
+    "db:studio": "pnpm --filter @agentdesk/db studio",
+    "setup": "pnpm install && pnpm db:migrate && pnpm db:seed"
+  },
+  "devDependencies": {
+    "turbo": "^2.10.10",
+    "typescript": "^5.9.3"
+  }
+}
