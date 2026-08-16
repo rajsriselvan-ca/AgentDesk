@@ -245,8 +245,4 @@ There is none, deliberately. The demo carries the caller in an `x-user-id` heade
 
 The included `Dockerfile` and `docker-compose.yml` do this end to end.
 
-## Known limits
 
-- **Rate limiting is in-process.** Correct for one node; behind several instances it becomes per-instance and the store should move to Redis. The middleware interface would not change.
-- **History search uses `ILIKE`.** Honest at this data size. A production desk would use `tsvector` or a vector index; the tool contract would be identical.
-- **The `workflow` SDK is not wired in.** Its Hono integration requires adopting Nitro as the build system for the whole API, which was judged too much risk to the foundation for the value. Durable escalation is modelled with the `action_requests` table instead.
